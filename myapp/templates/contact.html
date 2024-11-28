@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative Designs - Professional Graphic Design and Branding Solutions">
+    <meta name="author" content="Creative Designs">
+    <title>Rayzin Media - Professional Graphic Design</title>
+
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Preload important files for faster page loading -->
+    <link rel="preload" href="{% static 'css/style.css' %}" as="style">
+    <link rel="preload" href="{% static 'script/js.js' %}" as="script">
+</head>
+
+<body style="background-color: white;">
+
+    <!-- Loading Progress Bar -->
+    <div id="loading-bar-container">
+        <div id="loading-bar"></div>
+    </div>
+
+    <!-- HEADER SECTION -->
+    <header>
+        <div id="logo">
+            <a href="/">
+                <img src="{% static 'images/WhatsApp Image 2024-11-11 at 10.03.06 AM.jpeg' %}" alt="Rayzin Media Logo">
+            </a>
+        </div>
+
+        <nav class="navigation">
+            <ul>
+                <li><a href="{% url 'my_index' %}#home">Home</a></li>
+                <li><a href="{% url 'my_services' %}#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="{% url 'my_about' %}#about">About Us</a></li>
+                <li><a href="{% url 'my_contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contact Form Section -->
+    <section class="content-section">
+        <h2>Contact Us</h2>
+        <div class="contact-form">
+            <form method="POST" action="">
+                {% csrf_token %}
+
+                <!-- Name Input Container -->
+                <div class="form-group">
+                    <label for="name" class="form-label">Name:</label>
+                    <div class="input-container">
+                        <input type="text" name="name" id="name" placeholder="Enter your full name" required>
+                    </div>
+                </div>
+
+                <!-- Email Input Container -->
+                <div class="form-group">
+                    <label for="email" class="form-label">Email:</label>
+                    <div class="input-container">
+                        <input type="email" name="email" id="email" placeholder="Enter your email address" required>
+                    </div>
+                </div>
+
+                <!-- Subject Input Container -->
+                <div class="form-group">
+                    <label for="subject" class="form-label">Subject:</label>
+                    <div class="input-container">
+                        <input type="text" name="subject" id="subject" placeholder="Enter subject" required>
+                    </div>
+                </div>
+
+                <!-- Message Textarea Container -->
+                <div class="form-group">
+                    <label for="message" class="form-label">Message:</label>
+                    <div class="input-container">
+                        <textarea name="message" id="message" placeholder="Write your message here" rows="5" required></textarea>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <p>&copy; 2024 Rayzin Media | All Rights Reserved</p>
+        <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <!-- Include JS Scripts -->
+    <script src="{% static 'script/js.js' %}"></script>
+</body>
+
+</html>

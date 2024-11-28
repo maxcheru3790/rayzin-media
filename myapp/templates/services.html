@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative Designs - Professional Graphic Design and Branding Solutions">
+    <meta name="author" content="Creative Designs">
+    <title>Rayzin Media - Professional Graphic Design</title>
+
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Loading Progress Bar -->
+    <div id="loading-bar-container">
+        <div id="loading-bar"></div>
+    </div>
+
+    <!-- HEADER SECTION -->
+    <header>
+        <div id="logo">
+            <a href="/myapp/static">
+                <img src="{% static 'images/WhatsApp Image 2024-11-11 at 10.03.06 AM.jpeg' %}" alt="Creative Designs Logo">
+            </a>
+        </div>
+
+        <nav class="navigation">
+            <ul>
+                <li><a href="{% url 'my_index' %}#home">Home</a></li>
+                <li><a href="{% url 'my_services' %}#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="{% url 'my_about' %}#about">About Us</a></li>
+                <li><a href="{% url 'my_contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <h2 class="services-heading">Our Services</h2>
+        <div class="services-container">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Logo Design</h3>
+                <p>Create memorable and professional logos tailored to your brand’s identity.</p>
+                <a href="{% url 'my_logo_design' %}" class="service-link">Learn More</a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <i class="fas fa-pen-fancy"></i>
+                <h3>Branding</h3>
+                <p>Develop cohesive branding that represents your business across all platforms.</p>
+                <a href="{% url 'my_branding' %}" class="service-link">Learn More</a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Web Design</h3>
+                <p>Design visually stunning and user-friendly websites to engage your audience.</p>
+                <a href="{% url 'my_web_design' %}" class="service-link">Learn More</a>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+                <i class="fas fa-share-alt"></i>
+                <h3>Social Media Graphics</h3>
+                <p>Create eye-catching graphics for your social media platforms to grow your presence.</p>
+                <a href="{% url 'my_social_media' %}" class="service-link">Learn More</a>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card">
+                <i class="fas fa-print"></i>
+                <h3>Print Design</h3>
+                <p>Design high-quality print materials like brochures, posters, and business cards.</p>
+                <a href="{% url 'my_print_design' %}" class="service-link">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <p>&copy; 2024 Rayzin Media | All Rights Reserved</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </footer>
+
+    <script src="{% static 'script/js.js' %}"></script>
+</body>
+
+</html>
