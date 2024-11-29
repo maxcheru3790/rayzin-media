@@ -18,7 +18,7 @@
     <link rel="preload" href="{% static 'script/js.js' %}" as="script">
 </head>
 
-<body style="background-color: white;">
+<body>
 
     <!-- Loading Progress Bar -->
     <div id="loading-bar-container">
@@ -26,9 +26,9 @@
     </div>
 
     <!-- HEADER SECTION -->
-    <header>
+    <header class="branding-header">
         <div id="logo">
-            <a href="/">
+            <a href="/myapp/static">
                 <img src="{% static 'images/WhatsApp Image 2024-11-11 at 10.03.06 AM.jpeg' %}" alt="Rayzin Media Logo">
             </a>
         </div>
@@ -42,51 +42,45 @@
                 <li><a href="{% url 'my_contact' %}">Contact</a></li>
             </ul>
         </nav>
+
+        <h1>Logo Design Services</h1>
+        <p>Creating Memorable Logos That Capture Your Brand Essence</p>
     </header>
 
-    <!-- Contact Form Section -->
-    <section class="content-section">
-        <h2>Contact Us</h2>
-        <div class="contact-form">
-            <form method="POST" action="">
-                {% csrf_token %}
+    <!-- Logo Design Introduction Section -->
+    <section class="logo-design-intro">
+        <h2>Why Logo Design Matters</h2>
+        <p>A logo is the face of your brand. It should communicate the essence of your business in a simple, memorable, and versatile way. Our logo design service helps you create a unique symbol that stands out in a crowded market and resonates with your audience.</p>
+    </section>
 
-                <!-- Name Input Container -->
-                <div class="form-group">
-                    <label for="name" class="form-label">Name:</label>
-                    <div class="input-container">
-                        <input type="text" name="name" id="name" placeholder="Enter your full name" required>
-                    </div>
-                </div>
-
-                <!-- Email Input Container -->
-                <div class="form-group">
-                    <label for="email" class="form-label">Email:</label>
-                    <div class="input-container">
-                        <input type="email" name="email" id="email" placeholder="Enter your email address" required>
-                    </div>
-                </div>
-
-                <!-- Subject Input Container -->
-                <div class="form-group">
-                    <label for="subject" class="form-label">Subject:</label>
-                    <div class="input-container">
-                        <input type="text" name="subject" id="subject" placeholder="Enter subject" required>
-                    </div>
-                </div>
-
-                <!-- Message Textarea Container -->
-                <div class="form-group">
-                    <label for="message" class="form-label">Message:</label>
-                    <div class="input-container">
-                        <textarea name="message" id="message" placeholder="Write your message here" rows="5" required></textarea>
-                    </div>
-                </div>
-
-                <!-- Submit Button -->
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+    <!-- Logo Design Process Section -->
+    <section class="logo-design-process">
+        <h2>Our Logo Design Process</h2>
+        <div class="process-container">
+            <div class="process-step">
+                <h3>1. Discovery & Research</h3>
+                <p>We start by understanding your brand, target audience, and competitors to create a design that aligns with your business goals.</p>
+            </div>
+            <div class="process-step">
+                <h3>2. Conceptualization</h3>
+                <p>Based on our research, we sketch several design concepts that reflect the personality of your brand. You’ll be part of the process from start to finish.</p>
+            </div>
+            <div class="process-step">
+                <h3>3. Refinement</h3>
+                <p>We refine the best concept based on your feedback, tweaking colors, typography, and design elements to perfect the final logo.</p>
+            </div>
+            <div class="process-step">
+                <h3>4. Delivery</h3>
+                <p>We deliver the final logo in multiple formats for print and digital use, along with a logo style guide to ensure brand consistency.</p>
+            </div>
         </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="logo-design-cta">
+        <h2>Ready for a Custom Logo?</h2>
+        <p>Let us help you create a logo that speaks to your brand’s identity and leaves a lasting impression on your audience.</p>
+        <a href="/contact" class="cta-button">Get Started</a>
     </section>
 
     <!-- FOOTER SECTION -->
