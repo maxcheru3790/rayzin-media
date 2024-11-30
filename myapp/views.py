@@ -12,25 +12,25 @@ def home(request):
     return render(request, '../index.html', context)
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, '../about.html')
 
 def services(request):
-    return render(request, 'services.html')
+    return render(request, '../services.html')
 
 def logo_design(request):
-    return render(request, 'logo_design.html')
+    return render(request, '../logo_design.html')
 
 def branding(request):
-    return render(request, 'branding.html')
+    return render(request, '../branding.html')
 
 def web_design(request):
-    return render(request, 'web_design.html')
+    return render(request, '../web_design.html')
 
 def social_media(request):
-    return render(request, 'social_media.html')
+    return render(request, '../social_media.html')
 
 def print_design(request):
-    return render(request, 'print_design.html')
+    return render(request, '../print_design.html')
 
 def contact(request):
     if request.method == 'POST':
@@ -52,7 +52,7 @@ def contact(request):
             return redirect('my_contact_success')  # Redirect to success page
     else:
         form = ContactFeedbackForm()
-    return render(request, 'contact.html', {'form': form})
+    return render(request, '../contact.html', {'form': form})
 
 def contact_success(request):
-    return render(request, 'contact_success.html')
+    return render(request, '../contact_success.html')
