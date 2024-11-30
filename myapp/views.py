@@ -9,32 +9,7 @@ def home(request):
         'hero_title': 'Unleash Your Creativity',
         'hero_subtitle': 'Your Partner in Professional Graphic Design',
     }
-    return render(request, 'index.html', context)
-
-def contact(request):
-    if request.method == 'POST':
-        form = ContactFeedbackForm(request.POST)
-        if form.is_valid():
-            feedback = form.save()
-            try:
-                send_mail(
-                    f"New Contact Feedback from {feedback.name}",
-                    feedback.message,
-                    settings.DEFAULT_FROM_EMAIL,
-                    ['maxwel.cheruiyot3790@gmail.com'],  # Replace with your admin email
-                    fail_silently=False,
-                )
-            except Exception as e:
-                print(f"Error sending email: {e}")
-            return redirect('my_contact_success')
-    else:
-        form = ContactFeedbackForm()
-
-    context = {'form': form}
-    return render(request, 'contact.html', context)
-
-def contact_success(request):
-    return render(request, 'contact_success.html')
+    return render(request, '../index.html', context)
 
 def about(request):
     return render(request, 'about.html')
@@ -56,3 +31,28 @@ def social_media(request):
 
 def print_design(request):
     return render(request, 'print_design.html')
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactFeedbackForm(request.POST)
+        if form.is_valid():
+            feedback = form.save()
+            try:
+                # Send email to the admin after form submission
+                send_mail(
+                    subject=f"New Contact Feedback from {feedback.name}",
+                    message=feedback.message,
+                    from_email=settings.DEFAULT_FROM_EMAIL,
+                    recipient_list=['maxwel.cheruiyot3790@gmail.com'],  # Your admin email
+                    fail_silently=False,
+                    headers={'Reply-To': feedback.email},  # Include sender's email as reply-to
+                )
+            except Exception as e:
+                print(f"Error sending email: {e}")
+            return redirect('my_contact_success')  # Redirect to success page
+    else:
+        form = ContactFeedbackForm()
+    return render(request, 'contact.html', {'form': form})
+
+def contact_success(request):
+    return render(request, 'contact_success.html')
